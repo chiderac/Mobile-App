@@ -12,7 +12,6 @@ export default function App() {
             <Tab.Navigator>
                 <Tab.Screen name="Home" component={Home} />
                 <Tab.Screen name="SignOut" component={SignOut} />
-        <SignOut></SignOut>
         </Tab.Navigator></NavigationContainer>
     );
 }
