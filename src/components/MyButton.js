@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 const AppButton = () => (
     <View style={styles.buttonStyle}>
-        <Button title="Learn More"  
-          accessibilityLabel="Learn more about this purple button"/>  
+        <Button title="Learn More" onPress={() => navigation.navigate('About')}
+          accessibilityLabel="Learn more about this purple button" />  
       </View>
   );
 

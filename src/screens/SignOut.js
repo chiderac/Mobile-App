@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Button} from 'react-native';
 import AppButton from '../components/MyButton';
 import NewButton from '../components/button.js';
 
 export default function SignOut() {
     return ( 
         <View style = { styles.container } > 
-        <Text style={styles.title}> Sign Out Page</Text>
-        <AppButton/>   
-        <NewButton buttonText="Press Me"></NewButton> 
+        <Text style={styles.title}> Sign Out Page</Text> 
+        <NewButton buttonText="Sign Up"></NewButton> 
         <StatusBar style = "auto" />
         </View>
     );

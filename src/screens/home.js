@@ -1,37 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button} from 'react-native';
 import AppButton from '../components/MyButton';
 import NewButton from '../components/button.js';
 
-export default function Home() {
-    return ( 
+export default function Home({ navigation }) {
+    return (
+        <ImageBackground source={{uri: 'https://www.myfreewalls.com/public/uploads/preview/download-glass-prism-burst-wallpaper-for-mobile-616396115029fptn2id3w.jpg'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
-        <Text style={styles.title}> This is the Title</Text>
-        <Text style={styles.header}> This is the header</Text> 
-        <Text style={styles.subheader}> This is the sub header</Text>  
-        <Text style={styles.text}> This is the text</Text>
-        <AppButton/>   
-        <NewButton buttonText="Press Me"></NewButton> 
-        <StatusBar style = "auto" />
+        <Text style={styles.title}>Movie Hub</Text>
+        <Text style={styles.header}> Sign up to find streaming links to your movie of choice</Text> 
+        <Button title="Register" onPress={() => navigation.navigate('SignUp')} />
         </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'dodgerblue',
         alignItems: 'center',
+        //backgroundColor: 'black',
         justifyContent: 'center',
     },
+    
     title: {
-        color: 'yellow',
+        color: 'white',
         fontWeight: 'bold',
-        textDecorationLine: 'underline',
-        fontSize: 20,
+        fontSize: 50,
     },
     header: {
-        color: "black",
+        color: "white",
         fontWeight: "bold",
         fontSize: 20,
     },
@@ -42,6 +40,10 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 14,
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
     }
 
 });

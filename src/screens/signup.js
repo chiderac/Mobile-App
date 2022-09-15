@@ -1,25 +1,25 @@
 //<AppButton />   
 //<NewButton buttonText="Enter" ></NewButton> 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, ImageBackground} from 'react-native';
 import AppButton from '../components/MyButton';
 import NewButton from '../components/button.js';
 
 export default function SignUp() {
     return ( 
+        <ImageBackground source={{uri: 'https://www.myfreewalls.com/public/uploads/preview/download-glass-prism-burst-wallpaper-for-mobile-616396115029fptn2id3w.jpg'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
         <Text style={styles.title}> Sign Up </Text>
-        <br></br>
         <Button title="Sign Up" onPress={() => navigation.navigate('Home')} />
         <StatusBar style = "auto" />
         </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 14,
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
     }
 
 });
