@@ -1,14 +1,15 @@
 import Home from './src/screens/home';
 import About from './src/screens/about';
-import SignUp from './src/screens/signup';
+import Register from './src/screens/signup';
 import Search from './src/screens/search';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 const Tab = createBottomTabNavigator();
-
+const TopTab = createMaterialTopTabNavigator();
 
 export default function App() {
     return ( 
@@ -24,8 +25,12 @@ export default function App() {
                         } else if (route.name === 'About') {
                         iconName = focused ? 'ios-book' : 'ios-book-outline';
 
-                        } else if (route.name === 'SignUp') {
+                        } else if (route.name === 'Register') {
                         iconName = focused ? 'ios-person-add' : 'ios-person-add-outline';
+                        
+
+                        } else if (route.name === 'Search') {
+                        iconName = focused ? 'ios-search' : 'ios-search-outline';
                         
 
                         } else if (route.name === 'Search') {
@@ -43,7 +48,7 @@ export default function App() {
                 >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="About" component={About} />
-            <Tab.Screen name="SignUp" component={SignUp} />
+            <Tab.Screen name="Register" component={Register} />
             <Tab.Screen name="Search" component={Search} />
             </Tab.Navigator>
             </NavigationContainer>
