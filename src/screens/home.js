@@ -8,7 +8,9 @@ export default function Home({ navigation }) {
         <ImageBackground source={{uri: 'https://www.myfreewalls.com/public/uploads/preview/download-glass-prism-burst-wallpaper-for-mobile-616396115029fptn2id3w.jpg'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
         <Text style={styles.title}>Movie Hub</Text>
-        <Text style={styles.header}> Sign up to find streaming links to your movie of choice</Text> 
+        <Text style={styles.header}> Sign up to find streaming links to your movie of choice</Text>
+        <Text></Text> 
+        <Text></Text> 
         <Button title="Register" onPress={() => navigation.navigate('SignUp')} />
         </View>
         </ImageBackground>
