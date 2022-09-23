@@ -1,19 +1,54 @@
-//<AppButton />   
-//<NewButton buttonText="Enter" ></NewButton> 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ImageBackground, TextInput} from 'react-native';
-import AppButton from '../components/MyButton';
-import NewButton from '../components/button.js';
+import { StyleSheet, Text, View, Button, ImageBackground, TextInput, Alert} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function Register() {
-    const [name, setName] = useState('Chidera');
-    const [age, setAge] = useState('27');
-    const [email, setEmail] = useState('cjchukwumah@yahoo.co.uk');
-    const [password, setPassword] = useState('Genius100');
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+
+    useEffect(() => {
+        getData();
+    }, [])
+
+    const getData = () => {
+        try{
+            AsyncStorage.getItem("UserData").then(value => {
+                if(value != null){
+                    navigation.navigate('Login');
+                    //Alert.alert("Logged in Successfully!");
+                }
+            })
+        }catch(error){
+            console.warn(error);
+        }
+    }
+
+    const setData = async (data) => {
+        if(username.length == 0 || password.length == 0){
+            Alert.alert("Warning!", "Please write your data");
+        }else{
+            try{
+                var user = {
+                    Username: username,
+                    Password: password,
+                };
+                await AsyncStorage.setItem("UserData", JSON.stringify(user));
+                Alert.alert("Account Created Successfully"
+                );
+            }catch(error){
+                console.warn(error);
+            }
+        }
+    }
 
     return ( 
-        <ImageBackground source={{uri: 'https://www.myfreewalls.com/public/uploads/preview/download-glass-prism-burst-wallpaper-for-mobile-616396115029fptn2id3w.jpg'}} style={styles.backgroundImage}>
+        <ImageBackground source={{uri: 'https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=900&t=st=1663801401~exp=1663802001~hmac=ab514b0b1a1fdde6106cdc6443692a75d6fb569104a701587eedd499e5237bd7'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
         <Text style={styles.title}> Register Today! </Text>
         <Text></Text>
@@ -37,13 +72,19 @@ export default function Register() {
         style={styles.input}
         onChangeText={(value) => setEmail(value)} />
 
+        <Text style={styles.subheader}>Enter Username:</Text>
+        <TextInput 
+        placeholder='e.g. xxxxxx' 
+        style={styles.input}
+        onChangeText={(value) => setUsername(value)} />
+
         <Text style={styles.subheader}>Enter Password:</Text>
         <TextInput 
         placeholder='e.g. xxxxxx' 
         style={styles.input}
         onChangeText={(value) => setPassword(value)} />
 
-        <Button title="Register" onPress={() => navigation.navigate('Home')} />
+        <Button title="Register" onPress={setData} />
         <StatusBar style = "auto" />
         </View>
         </ImageBackground>
@@ -67,7 +108,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     subheader: {
-        color: "black",
+        color: "white",
+        fontWeight: "bold",
         fontSize: 16,
     },
     text: {
@@ -81,6 +123,7 @@ const styles = StyleSheet.create({
     input: {
         borderWidth: 5,
         borderColor: 'white',
+        backgroundColor:'white',
         padding: 8,
         margin: 10,
         width: 200,

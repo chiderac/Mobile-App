@@ -1,17 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground, Button} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button } from 'react-native';
 import AppButton from '../components/MyButton';
 import NewButton from '../components/button.js';
 
 export default function Home({ navigation }) {
     return (
-        <ImageBackground source={{uri: 'https://www.myfreewalls.com/public/uploads/preview/download-glass-prism-burst-wallpaper-for-mobile-616396115029fptn2id3w.jpg'}} style={styles.backgroundImage}>
+        <ImageBackground source={{uri: 'https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=900&t=st=1663801401~exp=1663802001~hmac=ab514b0b1a1fdde6106cdc6443692a75d6fb569104a701587eedd499e5237bd7'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
         <Text style={styles.title}>Movie Hub</Text>
         <Text style={styles.header}> Sign up to find streaming links to your movie of choice</Text>
         <Text></Text> 
         <Text></Text> 
-        <Button title="Register" onPress={() => navigation.navigate('SignUp')} />
+        <Button title="Register" onPress={() => navigation.navigate('Register')} />
         </View>
         </ImageBackground>
     );

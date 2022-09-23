@@ -1,30 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, ImageBackground} from 'react-native';
+import LogoutButton from '../components/logoutbutton'
 import AppButton from '../components/MyButton';
 import NewButton from '../components/button.js';
 
-export default function SignOut() {
+export default function SignOut({ navigation }) {
     return ( 
+        
+        <ImageBackground source={{uri: 'https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=900&t=st=1663801401~exp=1663802001~hmac=ab514b0b1a1fdde6106cdc6443692a75d6fb569104a701587eedd499e5237bd7'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
-        <Text style={styles.title}> Sign Out Page</Text> 
-        <NewButton buttonText="Sign Up"></NewButton> 
+        <Text style={styles.title}> Sign Out Page</Text>
+        <LogoutButton title="Log Out" onPress={() => navigation.navigate('Home')} /> 
         <StatusBar style = "auto" />
         </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'green',
         alignItems: 'center',
         justifyContent: 'center',
     },
     title: {
-        color: 'yellow',
+        color: 'white',
         fontWeight: 'bold',
-        textDecorationLine: 'underline',
-        fontSize: 20,
+        fontSize: 30,
     },
     header: {
         color: "black",
@@ -38,6 +40,11 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 14,
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
     }
+
 
 });

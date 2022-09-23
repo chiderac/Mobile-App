@@ -1,6 +1,8 @@
 import Home from './src/screens/home';
 import About from './src/screens/about';
 import Register from './src/screens/signup';
+import Login from './src/screens/login';
+import SignOut from './src/screens/SignOut';
 import Search from './src/screens/search';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -33,10 +35,12 @@ export default function App() {
                         iconName = focused ? 'ios-search' : 'ios-search-outline';
                         
 
-                        } else if (route.name === 'Search') {
-                        iconName = focused ? 'ios-search' : 'ios-search-outline';
-                        }
+                        } else if (route.name === 'Login') {
+                        iconName = focused ? 'ios-log-in' : 'ios-log-in-outline';
 
+                        }else if (route.name === 'SignOut') {
+                        iconName = focused ? 'ios-log-out' : 'ios-log-out-outline';
+                        }
                         // You can return any component that you like here!
                         return <Ionicons name={iconName} size={size} color={color} />;
                     },
@@ -50,6 +54,8 @@ export default function App() {
             <Tab.Screen name="About" component={About} />
             <Tab.Screen name="Register" component={Register} />
             <Tab.Screen name="Search" component={Search} />
+            <Tab.Screen name="Login" component={Login} />
+            <Tab.Screen name="SignOut" component={SignOut} />
             </Tab.Navigator>
             </NavigationContainer>
 );

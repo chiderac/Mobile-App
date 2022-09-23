@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ImageBackground} from 'react-native';
 
 export default function About() {
     return ( 
-        <ImageBackground source={{uri: 'https://www.myfreewalls.com/public/uploads/preview/download-glass-prism-burst-wallpaper-for-mobile-616396115029fptn2id3w.jpg'}} style={styles.backgroundImage}>
+        <ImageBackground source={{uri: 'https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=900&t=st=1663801401~exp=1663802001~hmac=ab514b0b1a1fdde6106cdc6443692a75d6fb569104a701587eedd499e5237bd7'}} style={styles.backgroundImage}>
         <View style = { styles.container } > 
         <Text style={styles.title}> About Page</Text>
         <Text style={styles.text}> Movie Hub is a new website where users can find all streaming links to a movie. If you are looking to watch a movie of your choice, sign up to our website!</Text>
